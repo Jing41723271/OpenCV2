@@ -365,10 +365,10 @@ class BLPF:
                 self.dis = distance(((self.rows/2),(self.cols/2)),(i,j))  #sqrt((int(self.rows/2)-i)**2+(int(self.cols/2)-j)**2) 
                 self.mask[i,j] = 1/((1+(self.D0/self.dis))**(2*self.n)) 
 
-'''
+
 #巴特沃斯低通滤波器实例
 FFTSherry.FFTchange(3)
-BLPFSherry = BLPF(shape = FFTSherry.FFTimage.shape,D0 = 10,n = 2,name = "BLPFSherry",author = "Jing")
+BLPFSherry = BLPF(shape = FFTSherry.FFTimage.shape,D0 = 5,n = 2,name = "BLPFSherry",author = "Jing")
 BLPFSherry.BLPFchange()
 FFTSherry.FFTimage = FFTSherry.FFTimage * BLPFSherry.mask + FFTSherry.FFTimage
 IFFTSherry = IFFT(ifftimage = FFTSherry.FFTimage,name = "IFFTSherry",author = "Jing")
@@ -376,8 +376,8 @@ IFFTSherry.IFFTchange()
 plt.subplot(1, 2, 2)
 plt.imshow(IFFTSherry.IFFTimage,'gray')                    #使用plt包输出图像，属性 "gray" 灰度
 plt.show()
-'''
 
+'''
 FFTSherry.FFTchange(3)
 GLPFSherry = GLPF(shape = FFTSherry.FFTimage.shape,D0 = 10,name = "GLPFSherry",author = "Jing")
 GLPFSherry.GLPFchange()
@@ -387,4 +387,4 @@ IFFTSherry.IFFTchange()
 plt.subplot(1, 2, 2)
 plt.imshow(IFFTSherry.IFFTimage,'gray')                    #使用plt包输出图像，属性 "gray" 灰度
 plt.show()
-
+'''
